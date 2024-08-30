@@ -1,0 +1,53 @@
+{
+  "name": "memoria-maxima-discord",
+  "version": "1.0.0",
+  "description": "Memoria Maxima: A bewitched Discord bot for managing memories.",
+  "author": "CatWithAWand (Ari)",
+  "license": "MIT",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "lint:prettier": "prettier -c . --cache --ignore-path=./.prettierignore",
+    "format": "prettier --write . --ignore-path=./.prettierignore",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "dotenv -c development -- tsx watch --clear-screen=false ./src/main.ts",
+    "clean": "rm -rf ./dist",
+    "build": "pnpm run clean && pnpm run compile",
+    "compile": "swc ./src/ -d ./dist --strip-leading-paths",
+    "start": "dotenv -c -- node --import=extensionless/register ./dist/main.js"
+  },
+  "dependencies": {
+    "@t3-oss/env-core": "^0.11.1",
+    "discord.js": "^14.15.3",
+    "dotenv-cli": "^7.4.2",
+    "extensionless": "^1.9.9",
+    "pino": "^9.3.2",
+    "redis": "^4.7.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "@swc/cli": "^0.4.0",
+    "@swc/core": "^1.7.21",
+    "@types/eslint": "^9.6.1",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^22.5.1",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "eslint": "^9.9.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-sort-destructure-keys": "^2.0.0",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "prettier": "^3.3.3",
+    "swc": "^1.0.11",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.3.0"
+  }
+}
